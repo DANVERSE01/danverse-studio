@@ -1,6 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  /* DANVERSE Color Palette */
+  --bg-primary: #0A0A0A;      /* Deep Black */
+  --bg-secondary: #111111;    /* Charcoal */
+  --bg-tertiary: #1A1A1A;     /* Dark Gray */
+  
+  --accent-primary: #D4AF37;   /* Cinematic Gold */
+  --accent-secondary: #B8860B; /* Dark Gold */
+  --accent-tertiary: #DAA520;  /* Goldenrod */
+  
+  --text-primary: #E5E5E5;     /* Off-White */
+  --text-secondary: #A0A0A0;   /* Light Gray */
+  --text-muted: #666666;       /* Muted Gray */
+  
+  --border-color: #2A2A2A;
+  --overlay: rgba(0, 0, 0, 0.7);
+}
 
 * {
   margin: 0;
@@ -10,16 +30,82 @@
 
 html {
   scroll-behavior: smooth;
-}
-
-body {
-  background-color: #000;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   overflow-x: hidden;
 }
 
-#__next {
-  width: 100%;
-  height: 100vh;
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography System */
+h1 {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2.5rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--text-primary);
+}
+
+h2 {
+  font-family: 'Italiana', serif;
+  font-size: clamp(2rem, 6vw, 4.5rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+p {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.accent-text {
+  color: var(--accent-primary);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-secondary);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--accent-primary);
+  color: var(--bg-primary);
+}
+
+/* Smooth Transitions */
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
